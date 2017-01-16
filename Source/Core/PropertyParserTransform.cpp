@@ -44,8 +44,9 @@ PropertyParserTransform::~PropertyParserTransform()
 }
 
 // Called to parse a RCSS transform declaration.
-bool PropertyParserTransform::ParseValue(Property& property, const String& value, const ParameterMap& ROCKET_UNUSED(parameters)) const
+bool PropertyParserTransform::ParseValue(Property& property, const String& value, const ParameterMap& ROCKET_UNUSED_PARAMETER(parameters)) const
 {
+  ROCKET_UNUSED(parameters);
 	SharedReference< Transform > transform(new Transform);
 
 	char const* next = value.CString();

@@ -49,8 +49,12 @@ Matrix4< Component, Storage >::Matrix4() throw()
 // Initialising, copy constructor.
 template< typename Component, class Storage >
 Matrix4< Component, Storage >::Matrix4(const typename Matrix4< Component, Storage >::ThisType& other) throw()
-	: vectors(other.vectors)
+//	: vectors(other.vectors) //doesn't compile on msvc15
 {
+  for (int i = 0; i < 4; ++i)
+	{
+		vectors[i] = other.vectors[i];
+	}
 }
 
 template< typename Component, class Storage >
@@ -72,6 +76,7 @@ const typename Matrix4< Component, Storage >::ThisType& Matrix4< Component, Stor
 	{
 		vectors[i] = other.vectors[i];
 	}
+  return *this;
 }
 
 template< typename Component, class Storage >
