@@ -137,5 +137,11 @@ Context* RenderInterface::GetContext() const
 	return context;
 }
 
+// Get the element currently being rendered.
+Element* RenderInterface::GetElement() const
+{
+	return element;
+}
+
 }
 }

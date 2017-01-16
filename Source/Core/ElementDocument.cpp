@@ -29,7 +29,7 @@
 #include "../../Include/Rocket/Core/ElementDocument.h"
 #include "../../Include/Rocket/Core/StreamMemory.h"
 #include "../../Include/Rocket/Core.h"
-#include "DocumentHeader.h"
+#include "../../Include/Rocket/Core/DocumentHeader.h"
 #include "ElementStyle.h"
 #include "EventDispatcher.h"
 #include "LayoutEngine.h"
@@ -125,7 +125,19 @@ void ElementDocument::ProcessHeader(const DocumentHeader* document_header)
 	// If a style sheet is available, set it on the document and release it.
 	if (style_sheet)
 	{
-		SetStyleSheet(style_sheet);
+		StyleSheet* doc_style = GetStyleSheet();
+		if (doc_style)
+		{
+			//need to merge with existing sheet
+			StyleSheet* comb_style = doc_style->CombineStyleSheet(style_sheet);
+			SetStyleSheet(comb_style); //doc_style should be deleted by this
+			comb_style->RemoveReference();
+		}
+		else
+		{
+			//just set it
+			SetStyleSheet(style_sheet);
+		}
 		style_sheet->RemoveReference();
 	}
 

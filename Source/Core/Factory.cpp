@@ -323,6 +323,9 @@ ElementDocument* Factory::InstanceDocumentStream(Rocket::Core::Context* context,
 	document->lock_layout = true;
 	document->context = context;
 
+	DocumentHeader* uaHeader = Rocket::Core::GetSystemInterface()->GetUserAgentHeader();
+	if (uaHeader) document->ProcessHeader(uaHeader);
+
 	XMLParser parser(element);
 	parser.Parse(stream);
 

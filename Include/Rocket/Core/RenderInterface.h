@@ -132,13 +132,19 @@ public:
 	/// CompileGeometry, RenderCompiledGeometry, EnableScissorRegion and SetScissorRegion.
 	Context* GetContext() const;
 
+	/// Get the element currently being rendered. This is only valid during RenderGeometry,
+	/// CompileGeometry, RenderCompiledGeometry, EnableScissorRegion and SetScissorRegion.
+	Element* GetElement() const;
+
 protected:
 	virtual void OnReferenceDeactivate();
 
 private:
 	Context* context;
+	Element* element;
 
 	friend class Context;
+	friend class Element;
 };
 
 }

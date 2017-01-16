@@ -72,6 +72,12 @@ bool SystemInterface::LogMessage(Log::Type ROCKET_UNUSED_PARAMETER(logtype), con
 }
 #endif	
 
+// Returns any "user agent" header properties to be loaded in all documents.
+DocumentHeader* SystemInterface::GetUserAgentHeader() 
+{
+  return NULL;
+}
+
 int SystemInterface::TranslateString(String& translated, const String& input)
 {
 	translated = input;

@@ -91,6 +91,7 @@ bool PropertyParserNumber::ParseValue(Property& property, const String& value, c
 
 	// Default to a simple number.
 	property.unit = Property::NUMBER;
+	const UnitSuffix* unit = nullptr;
 
 	// Check for a unit declaration at the end of the number.
 	for (size_t i = 0; i < unit_suffixes.size(); i++)
@@ -103,19 +104,22 @@ bool PropertyParserNumber::ParseValue(Property& property, const String& value, c
 		if (strcasecmp(value.CString() + (value.Length() - unit_suffix.second.Length()), unit_suffix.second.CString()) == 0)
 		{
 			property.unit = unit_suffix.first;
+			unit = &unit_suffix;
 			break;
 		}
 	}
-
+	
 	if ((units & property.unit) == 0)
 	{
 		// Detected unit not allowed (this can only apply to NUMBER,
 		// i.e., when no unit was found but one is required).
 		return false;
 	}
-
+	
+	//if we found a suffix, strip it off the number before we try to parse
+	String numpart = unit == nullptr ? value : value.Substring(0, value.Length() - unit->second.Length());
 	float float_value;
-	if (sscanf(value.CString(), "%f", &float_value) == 1)
+	if (sscanf(numpart.CString(), "%f", &float_value) == 1)
 	{
 		property.value = Variant(float_value);
 		return true;

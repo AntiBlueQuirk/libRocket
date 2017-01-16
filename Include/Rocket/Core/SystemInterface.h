@@ -32,6 +32,7 @@
 #include "ReferenceCountable.h"
 #include "String.h"
 #include "Header.h"
+#include "DocumentHeader.h"
 
 namespace Rocket {
 namespace Core {
@@ -61,6 +62,10 @@ public:
 	/// @return Elapsed time, in seconds.
 	virtual float GetElapsedTime() = 0;
 
+	/// Returns any "user agent" header properties to be loaded in all documents.
+	/// @return A pointer to a DocumentHeader populated to be loaded in all documents, or NULL.
+	virtual DocumentHeader* GetUserAgentHeader();
+  
 	/// Translate the input string into the translated string.
 	/// @param[out] translated Translated string ready for display.
 	/// @param[in] input String as received from XML.

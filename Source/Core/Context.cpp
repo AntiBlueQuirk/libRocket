@@ -169,6 +169,7 @@ bool Context::Render()
 		root->GetChild(i)->UpdateLayout();
 
 	render_interface->context = this;
+	render_interface->element = NULL;
 	ElementUtilities::ApplyActiveClipRegion(this, render_interface);
 
 	root->Render();
@@ -221,6 +222,10 @@ ElementDocument* Context::CreateDocument(const String& tag)
 	}
 
 	document->context = this;
+
+	DocumentHeader* uaHeader = Rocket::Core::GetSystemInterface()->GetUserAgentHeader();
+	if (uaHeader) document->ProcessHeader(uaHeader);
+
 	root->AppendChild(document);
 
 	PluginRegistry::NotifyDocumentLoad(document);
