@@ -156,6 +156,7 @@ bool Context::Render()
 		root->GetChild(i)->UpdateLayout();
 
 	render_interface->context = this;
+	render_interface->element = NULL;
 	ElementUtilities::ApplyActiveClipRegion(this, render_interface);
 
 	root->Render();

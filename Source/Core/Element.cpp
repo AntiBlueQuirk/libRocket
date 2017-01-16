@@ -174,6 +174,8 @@ void Element::Render()
 	for (; i < stacking_context.size() && stacking_context[i]->z_index < 0; ++i)
 		stacking_context[i]->Render();
 
+	RenderInterface* rface = GetRenderInterface();
+	if (rface) rface->element = this;
 	// Set up the clipping region for this element.
 	if (ElementUtilities::SetClippingRegion(this))
 	{
