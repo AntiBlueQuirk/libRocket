@@ -467,8 +467,7 @@ endmacro()
 
 if(BUILD_SAMPLES)
     include(SampleFileList)
-
-    set(samples treeview customlog drag loaddocument bitmapfont)
+    set(samples treeview customlog drag loaddocument bitmapfont transform)
     set(tutorials template datagrid datagrid_tree tutorial_drag)
     
 if(NOT BUILD_FRAMEWORK)

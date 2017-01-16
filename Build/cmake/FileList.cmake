@@ -61,6 +61,7 @@ set(Core_HDR_FILES
     ${PROJECT_SOURCE_DIR}/Source/Core/PropertyParserKeyword.h
     ${PROJECT_SOURCE_DIR}/Source/Core/PropertyParserNumber.h
     ${PROJECT_SOURCE_DIR}/Source/Core/PropertyParserString.h
+    ${PROJECT_SOURCE_DIR}/Source/Core/PropertyParserTransform.h
     ${PROJECT_SOURCE_DIR}/Source/Core/PropertyShorthandDefinition.h
     ${PROJECT_SOURCE_DIR}/Source/Core/StreamFile.h
     ${PROJECT_SOURCE_DIR}/Source/Core/StringCache.h
@@ -147,6 +148,8 @@ set(Core_PUB_HDR_FILES
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Input.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Log.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Math.h
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Matrix4.h
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Matrix4.inl
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/MathTypes.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Platform.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Plugin.h
@@ -169,6 +172,9 @@ set(Core_PUB_HDR_FILES
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/StyleSheetSpecification.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/SystemInterface.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Texture.h
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Transform.h
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/TransformState.h
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/TransformPrimitive.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/TypeConverter.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/TypeConverter.inl
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Types.h
@@ -177,7 +183,12 @@ set(Core_PUB_HDR_FILES
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Variant.inl
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Vector2.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Vector2.inl
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Vector3.h
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Vector3.inl
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Vector4.h
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Vector4.inl
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/Vertex.h
+    ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/ViewState.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/WString.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/XMLNodeHandler.h
     ${PROJECT_SOURCE_DIR}/Include/Rocket/Core/XMLParser.h
@@ -277,6 +288,7 @@ set(Core_SRC_FILES
     ${PROJECT_SOURCE_DIR}/Source/Core/PropertyParserKeyword.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/PropertyParserNumber.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/PropertyParserString.cpp
+    ${PROJECT_SOURCE_DIR}/Source/Core/PropertyParserTransform.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/PropertySpecification.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/ReferenceCountable.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/RenderInterface.cpp
@@ -313,9 +325,15 @@ set(Core_SRC_FILES
     ${PROJECT_SOURCE_DIR}/Source/Core/TextureLayoutRow.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/TextureLayoutTexture.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/TextureResource.cpp
+    ${PROJECT_SOURCE_DIR}/Source/Core/Transform.cpp
+    ${PROJECT_SOURCE_DIR}/Source/Core/TransformState.cpp
+    ${PROJECT_SOURCE_DIR}/Source/Core/TransformPrimitive.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/UnicodeRange.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/URL.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/Variant.cpp
+    ${PROJECT_SOURCE_DIR}/Source/Core/Vector3.cpp
+    ${PROJECT_SOURCE_DIR}/Source/Core/Vector4.cpp
+    ${PROJECT_SOURCE_DIR}/Source/Core/ViewState.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/WidgetSlider.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/WidgetSliderScroll.cpp
     ${PROJECT_SOURCE_DIR}/Source/Core/WString.cpp
