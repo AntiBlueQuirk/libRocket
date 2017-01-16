@@ -208,6 +208,10 @@ ElementDocument* Context::CreateDocument(const String& tag)
 	}
 
 	document->context = this;
+
+	DocumentHeader* uaHeader = Rocket::Core::GetSystemInterface()->GetUserAgentHeader();
+	if (uaHeader) document->ProcessHeader(uaHeader);
+
 	root->AppendChild(document);
 
 	PluginRegistry::NotifyDocumentLoad(document);

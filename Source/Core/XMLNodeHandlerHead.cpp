@@ -27,7 +27,7 @@
 
 #include "precompiled.h"
 #include "XMLNodeHandlerHead.h"
-#include "DocumentHeader.h"
+#include "../../Include/Rocket/Core/DocumentHeader.h"
 #include "TemplateCache.h"
 #include "../../Include/Rocket/Core.h"
 
