@@ -569,7 +569,7 @@ Matrix4< Component, Storage > Matrix4< Component, Storage >::RotateX(Component a
 		Matrix4< Component, Storage >::VectorType(1, 0,    0,   0),
 		Matrix4< Component, Storage >::VectorType(0, Cos, -Sin, 0),
 		Matrix4< Component, Storage >::VectorType(0, Sin,  Cos, 0),
-		Matrix4< Component, Storage >::VectorType(1, 0,    0,   1)
+		Matrix4< Component, Storage >::VectorType(0, 0,    0,   1)
 	);
 }
 
@@ -606,8 +606,8 @@ Matrix4< Component, Storage > Matrix4< Component, Storage >::Skew(Component angl
 	Component SkewX = Math::Tan(Math::DegreesToRadians(angle_x));
 	Component SkewY = Math::Tan(Math::DegreesToRadians(angle_y));
 	return Matrix4< Component, Storage >::FromRows(
-		Matrix4< Component, Storage >::VectorType(0,     SkewY, 0, 0),
-		Matrix4< Component, Storage >::VectorType(SkewX, 0,     0, 0),
+		Matrix4< Component, Storage >::VectorType(1,     SkewX, 0, 0),
+		Matrix4< Component, Storage >::VectorType(SkewY, 1,     0, 0),
 		Matrix4< Component, Storage >::VectorType( 0,    0,     1, 0),
 		Matrix4< Component, Storage >::VectorType( 0,    0,     0, 1)
 	);
